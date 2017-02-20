@@ -11,6 +11,8 @@
 
       @include('partials._message')
 
+      {{ Auth::check() ? 'Logged In' : 'Logged Out' }}
+
       @yield('content')
 
       @include('partials._foot')

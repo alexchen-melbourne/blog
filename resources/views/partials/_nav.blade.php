@@ -28,7 +28,7 @@
           <li><a href="#">Another action</a></li>
           <li><a href="#">Something else here</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="#">Log Out</a></li>
+          <li><a href="{{ route('logout') }}">Log Out</a></li>
         </ul>
       </li>
     </ul>
