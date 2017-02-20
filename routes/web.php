@@ -22,6 +22,11 @@ Route::get('logout', 'Auth\LoginController@logout');
 //Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm');
 //Route::post('auth/register', 'Auth\RegisterController@register');
 
+
+// categories
+Route::resource('categories', 'CategoryController', ['except' => ['create']]);
+
+
 // Blog routes
 Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
