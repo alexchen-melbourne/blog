@@ -2,6 +2,10 @@
 
 @section('title', '| Edit Post')
 
+@section('stylesheets')
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+@endsection
+
 @section('content')
 
   <div class="row">
@@ -16,6 +20,9 @@
 
       {{ Form::label('category_id', 'Category:', ['class' => 'form-spacing-top']) }}
       {{ Form::select('category_id', $cats, null, ['class' => 'form-control']) }}
+
+      {{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
+      {{ Form::select('tags[]', $tags, null, ['class' => 'form-control s2', 'multiple' => 'multiple']) }}
 
       {{ Form::label('body', 'Body:', ['class' => 'form-spacing-top'])}}
       {{ Form::textarea('body', null, ['class' => 'form-control']) }}
@@ -50,3 +57,12 @@
   </div>
 
 @stop
+
+@section('scripts')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+  <script type="text/javascript">
+  $(".s2").select2();
+  $('.s2').select2().val({!! $t !!}).trigger('change');
+  </script>
+@endsection
