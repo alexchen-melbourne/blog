@@ -7,6 +7,10 @@ This project is a blog application made by Laravel 5.4 with following feartures:
 - Post blog with tags
 - Leave comments
 
+## About Me
+
+I am Alex Chen located in Melbourne AU. I am a web developer.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
