@@ -6,8 +6,11 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <h1>Contact me</h1>
-        <form class="form-horizontal" role="form" method="post" action="index.php">
-        	<div class="form-group">
+
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('contact') }}">
+          {{ csrf_field() }}
+
+          <div class="form-group">
         		<label for="name" class="col-sm-2 control-label">Name</label>
         		<div class="col-sm-10">
         			<input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
@@ -19,6 +22,13 @@
         			<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
         		</div>
         	</div>
+          <div class="form-group">
+        		<label for="subject" class="col-sm-2 control-label">Subject</label>
+        		<div class="col-sm-10">
+        			<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" value="">
+        		</div>
+        	</div>
+
         	<div class="form-group">
         		<label for="message" class="col-sm-2 control-label">Message</label>
         		<div class="col-sm-10">
@@ -31,11 +41,14 @@
         			<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
         		</div>
         	</div>
+
         	<div class="form-group">
         		<div class="col-sm-10 col-sm-offset-2">
         			<!-- Will be used to display an alert to the user-->
         		</div>
         	</div>
+
         </form>
+
     </div>
 @endsection
