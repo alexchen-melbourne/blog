@@ -4,6 +4,10 @@
 
 @section('stylesheets')
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+  <script src="//cloud.tinymce.com/stable/tinymce.min.js"></script>
+  <script type="text/javascript">
+    tinymce.init({ selector: 'textarea' });
+  </script>
 @endsection
 
 @section('content')
@@ -35,7 +39,7 @@
         </select>
 
         {{ Form::label('body', 'Post Body:') }}
-        {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '')) }}
+        {{ Form::textarea('body', null, array('class' => 'form-control')) }}
 
         {{ Form::submit('Create  Post', array('class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 20px;' )) }}
 
