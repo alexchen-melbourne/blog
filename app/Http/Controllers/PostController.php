@@ -7,6 +7,7 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use Session;
+use Purifier;
 
 class PostController extends Controller
 {
@@ -67,9 +68,9 @@ class PostController extends Controller
         $post = new Post;
 
         $post->title = $request->title;
-        $post->body = $request->body;
         $post->category_id = $request->category_id;
         $post->slug = $request->slug;
+        $post->body = Purifier::clean($request->body);
 
         $post->save();
 
@@ -147,10 +148,10 @@ class PostController extends Controller
           ));
         }else{
           $this->validate($request, array(
-            'title' => 'required|max:255',
-            'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+            'title'       => 'required|max:255',
+            'slug'        => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body' => 'required'
+            'body'        => 'required'
           ));
         }
 
@@ -160,7 +161,7 @@ class PostController extends Controller
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
         $post->category_id = $request->input('category_id');
-        $post->body = $request->input('body');
+        $post->body = Purifier::clean($request->body);
 
         $post->save();
 
